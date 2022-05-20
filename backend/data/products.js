@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'iPhone 12 mini',
     image: '/images/iphone-12mini.jpg',
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 5,
   },
   {
-    _id: '2',
     name: 'iPhone 12',
     image: '/images/iphone-12.jpg',
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 5,
   },
   {
-    _id: '3',
     name: 'iPhone 12 Pro',
     image: '/images/iphone-12pro.jpg',
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '4',
     name: 'iPhone 12 Pro Max',
     image: '/images/iphone-12-pro-max.jpg',
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 5,
   },
   {
-    _id: '5',
     name: 'Galaxy S21 Ultra',
     image: '/images/Galaxy-S21-Ultra.jpg',
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: 9,
   },
   {
-    _id: '6',
     name: 'Galaxy S20 Ultra',
     image: '/images/Galaxy-S20-Ultra.jpg',
     description:
@@ -78,7 +72,6 @@ const products = [
     numReviews: 5,
   },
   {
-    _id: '7',
     name: 'OnePlus 8T',
     image: '/images/one-plus-8t.jpg',
     description:
@@ -91,7 +84,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '8',
     name: 'Galaxy S22 Ultra',
     image: '/images/Galaxy-S22-Ultra.jpg',
     description:
@@ -104,7 +96,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '9',
     name: 'Pixel 6',
     image: '/images/Pixel-6.jpg',
     description:
@@ -117,7 +108,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '10',
     name: 'Pixel 6 Pro',
     image: '/images/Pixel-6-Pro.jpg',
     description:
