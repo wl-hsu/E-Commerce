@@ -10,6 +10,9 @@ router.get(
   '/',
   asyncHandler(async (req, res) => {
     const products = await Product.find({})
+    // test error
+    // res.status(401)
+    // throw new Error('No access right')
     res.json(products)
   })
 )

@@ -4,7 +4,7 @@ import {
     PRODUCT_LIST_FAIL,
   } from '../contents/productConstents'
   
-  //获取所有产品的reducer
+  //get all product reducer
   export const productListReducer = (state = { products: [] }, action) => {
     switch (action.type) {
       case PRODUCT_LIST_REQUEST:
