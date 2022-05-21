@@ -23,12 +23,17 @@
   },
   "homepage": "https://github.com/wl-hsu/E-Commerce#readme",
   "dependencies": {
+    "autoprefixer": "10.4.5",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-handler": "^1.2.0",
-    "mongoose": "^5.11.3"
+    "mongoose": "^5.11.3",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
