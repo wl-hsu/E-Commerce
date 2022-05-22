@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-//链接数据库
+//Connect DB
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI, {
