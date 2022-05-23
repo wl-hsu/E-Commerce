@@ -12,12 +12,12 @@ const ShippingScreen = ({ history }) => {
   const [address, setAddress] = useState(shippingAddress.address)
   const [city, setCity] = useState(shippingAddress.city)
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode)
-  const [province, setProvince] = useState(shippingAddress.province)
+  const [state, setState] = useState(shippingAddress.state)
 
   //Submit shipping address function
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(saveShippingAddress({ address, city, postalCode, province }))
+    dispatch(saveShippingAddress({ address, city, postalCode, state }))
     history.push('/payment')
   }
   return (
@@ -55,14 +55,14 @@ const ShippingScreen = ({ history }) => {
             onChange={(e) => setPostalCode(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Form.Group controlId='province'>
+        <Form.Group controlId='state'>
           <Form.Label>State:</Form.Label>
           <Form.Control
             type='text'
             placeholder='State'
-            value={province}
+            value={state}
             required
-            onChange={(e) => setProvince(e.target.value)}
+            onChange={(e) => setState(e.target.value)}
           ></Form.Control>
         </Form.Group>
         <Button type='submit' variant='primary'>
