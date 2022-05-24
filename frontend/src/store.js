@@ -6,6 +6,7 @@ import {
   productDeatilsReducer,
   productDeleteReducer,
   productCreateReducer,
+  productUpdateReducer,
 } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
 import {
@@ -37,6 +38,7 @@ const reducer = combineReducers({
   userUpdate: userUpdateReducer,
   productDelete: productDeleteReducer,
   productCreate: productCreateReducer,
+  productUpdate: productUpdateReducer,
 })
 
 //Get locally stored shopping cart information
