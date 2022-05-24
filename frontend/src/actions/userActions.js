@@ -12,6 +12,9 @@ import {
   USER_UPDATE_PROFILE_FAIL,
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
+  USER_LIST_FAIL,
+  USER_LIST_REQUEST,
+  USER_LIST_SUCCESS,
 } from '../contents/userContents'
 import axios from 'axios'
 
@@ -31,7 +34,7 @@ export const login = (email, password) => async (dispatch) => {
       { email, password },
       config
     )
-    dispatch({ type: USER_LOGIN_SUCCESS, payload: data })
+    dispatch({ type: USER_LIST_SUCCESS, payload: data })
 
     localStorage.setItem('userInfo', JSON.stringify(data))
   } catch (error) {
@@ -111,12 +114,12 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     })
   }
 }
-//更新用户详情Action
+//Update user details Action
 export const updateUserDetails = (user) => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_UPDATE_PROFILE_REQUEST })
 
-    //获取登录成功后的用户信息
+    //Get user information after successful login
     const {
       userLogin: { userInfo },
     } = getState()
@@ -135,6 +138,35 @@ export const updateUserDetails = (user) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_UPDATE_PROFILE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+//user list Action
+export const listUsers = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: USER_LIST_REQUEST })
+
+    //Get user information after successful login
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }
+
+    const { data } = await axios.get(`/api/users`, config)
+    dispatch({ type: USER_LIST_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({
+      type: USER_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

@@ -97,4 +97,12 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     throw new Error('User does not exist')
   }
 })
-export { registerUser, authUser, getUserProfile, updateUserProfile }
+//@desc    Get all registered users
+//@route   GET/api/users
+//@access  private (admin only)
+const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({})
+  res.json(users)
+})
+
+export { registerUser, authUser, getUserProfile, updateUserProfile, getUsers }
