@@ -37,15 +37,14 @@ const PaymenScreen = ({ history }) => {
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
-            <Form.Check
+            {/* <Form.Check
               type='radio'
               label='WeChat Pay'
               id='WeChat Pay'
               name='paymenMethod'
               value='WeChat Pay'
-              checked
               onChange={(e) => setPaymentMethod(e.target.value)}
-            ></Form.Check>
+            ></Form.Check> */}
           </Col>
         </Form.Group>
         <Button type='submit' variant='primary'>
