@@ -11,11 +11,15 @@ import {
   Modal,
 } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { getOrderDetails, payOrder } from '../actions/orderActions'
+import {
+  getOrderDetails,
+  payOrder,
+  deliverOrder,
+} from '../actions/orderActions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import axios from 'axios'
-import { ORDER_PAY_RESET } from '../contents/orderContents'
+import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../contents/orderContents'
 import { v4 as uuidv4 } from 'uuid'
 import { PayPalButton } from 'react-paypal-button-v2'
 
@@ -39,6 +43,9 @@ const OrderScreen = ({ match, history }) => {
 
   const orderPay = useSelector((state) => state.orderPay)
   const { loading: loadingPay, error: errorPay, success: successPay } = orderPay
+
+  const orderDeliver = useSelector((state) => state.orderDeliver)
+  const { loading: loadingDeliver, success: successDeliver } = orderDeliver
 
   //calculate price
   if (!loading) {
@@ -68,8 +75,9 @@ const OrderScreen = ({ match, history }) => {
     if (!userInfo) {
       history.push('/login')
     }
-    if (!order || order._id !== orderId || successPay) {
+    if (!order || order._id !== orderId || successPay || successDeliver) {
       dispatch({ type: ORDER_PAY_RESET })
+      dispatch({ type: ORDER_DELIVER_RESET })
       dispatch(getOrderDetails(orderId))
     } else if (!order.isPaid) {
       if (!window.paypal) {
@@ -80,7 +88,7 @@ const OrderScreen = ({ match, history }) => {
     }
     
     // eslint-disable-next-line
-  }, [dispatch, history, userInfo, order, orderId, successPay])
+  }, [dispatch, history, userInfo, order, orderId, successPay, successDeliver])
 
   //Create functions to open and close popovers
   const handleClose = () => {
@@ -88,7 +96,7 @@ const OrderScreen = ({ match, history }) => {
   }
 
   const handlePayment = () => {
-    setImage('https://www.thenewstep.cn/pay/index.php?' + 'pid=' + order._id)
+    setImage('your WeChat Pay service address' + 'pid=' + order._id)
     setShow(true)
 
     //Set a timer to monitor payments
@@ -123,6 +131,11 @@ const OrderScreen = ({ match, history }) => {
       dispatch(payOrder(orderId, paymentResult))
     }
 
+    //click-to-ship btn function
+    const deliverHandler = () => {
+      dispatch(deliverOrder(order))
+    }
+
   return loading ? (
     <Loader />
   ) : error ? (
@@ -146,13 +159,13 @@ const OrderScreen = ({ match, history }) => {
                 <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
               </p>
               <p>
-                {order.shippingAddress.province},{order.shippingAddress.city},
-                {order.shippingAddress.address},
+                {order.shippingAddress.address},{order.shippingAddress.city},
+                {order.shippingAddress.state},
                 {order.shippingAddress.postalCode}
               </p>
               {order.isDelivered ? (
                 <Message variant='success'>
-                  Delivery time:{order.DeliveredAt}
+                  Delivery time:{order.deliveredAt}
                 </Message>
               ) : (
                 <Message variant='danger'>Undelivered</Message>
@@ -230,10 +243,10 @@ const OrderScreen = ({ match, history }) => {
                 </Row>
               </ListGroup.Item>
                     {/*PayPal BTN*/}
-                    {loadingPay && <Loader />}
-              {order.paymentMethod === 'PayPal' && (
+                    {!order.isPaid && (
                 <ListGroup.Item>
-                  {!SDK ? (
+                  {loadingPay && <Loader />}
+                  {order.paymentMethod === 'PayPal' && !SDK ? (
                     <Loader />
                   ) : (
                     <PayPalButton
@@ -243,7 +256,8 @@ const OrderScreen = ({ match, history }) => {
                   )}
                 </ListGroup.Item>
               )}
-              {order.paymentMethod === 'WeChat Pay' && (<ListGroup.Item>
+              {!order.isPaid && order.paymentMethod === 'WeChat Pay' && (
+              <ListGroup.Item>
                     {/*WeChat Pay BTN*/}
                 <Button
                   type='button'
@@ -281,6 +295,21 @@ const OrderScreen = ({ match, history }) => {
                   </Modal.Footer>
                 </Modal>
               </ListGroup.Item>)}   
+                {/* Delivery BTN */}
+                {userInfo &&
+                userInfo.isAdmin &&
+                order.isPaid &&
+                !order.isDelivered && (
+                  <ListGroup.Item>
+                    <Button
+                      type='button'
+                      className='btn-block'
+                      onClick={deliverHandler}
+                    >
+                      delivered
+                    </Button>
+                  </ListGroup.Item>
+                )}
             </ListGroup>
           </Card>
         </Col>

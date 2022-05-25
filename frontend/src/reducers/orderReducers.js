@@ -16,6 +16,10 @@ import {
     ORDER_LIST_MY_REQUEST,
     ORDER_LIST_MY_SUCCESS,
     ORDER_LIST_MY_RESET,
+    ORDER_DELIVER_FAIL,
+    ORDER_DELIVER_REQUEST,
+    ORDER_DELIVER_RESET,
+    ORDER_DELIVER_SUCCESS,
   } from '../contents/orderContents'
   
   //Create order reducer
@@ -90,6 +94,22 @@ export const orderListMyReducer = (state = { orders: [] }, action) => {
       return { loading: false, error: action.payload }
     case ORDER_LIST_MY_RESET:
       return { orders: [] }
+    default:
+      return state
+  }
+}
+
+//updates the shipping status reducer
+export const orderDeliverReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ORDER_DELIVER_REQUEST:
+      return { loading: true }
+    case ORDER_DELIVER_SUCCESS:
+      return { loading: false, success: true }
+    case ORDER_DELIVER_FAIL:
+      return { loading: false, error: action.payload }
+    case ORDER_DELIVER_RESET:
+      return {}
     default:
       return state
   }
