@@ -24,6 +24,7 @@
   "homepage": "https://github.com/wl-hsu/E-Commerce#readme",
   "dependencies": {
     "autoprefixer": "10.4.5",
+    "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",

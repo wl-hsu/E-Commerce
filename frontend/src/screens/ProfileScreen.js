@@ -6,7 +6,6 @@ import Loader from '../components/Loader'
 import { getUserDetails, updateUserDetails } from '../actions/userActions'
 import { USER_UPDATE_PROFILE_RESET } from '../contents/userContents'
 
-
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -30,6 +29,7 @@ const ProfileScreen = ({ location, history }) => {
     } else {
       if (!user.name || success) {
         dispatch({ type: USER_UPDATE_PROFILE_RESET })
+        dispatch(getUserDetails('profile'))
       } else {
         setName(user.name)
         setEmail(user.email)
@@ -45,17 +45,17 @@ const ProfileScreen = ({ location, history }) => {
   return (
     <Row>
       <Col md={3}>
-        <h2>My Profiles</h2>
-        {success && <Message variant='success'>Update successfully</Message>}
+        <h2>Profile</h2>
+        {success && <Message variant='success'>update completed!</Message>}
         {message && <Message variant='danger'>{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='name'>
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Name:</Form.Label>
             <Form.Control
               type='name'
-              placeholder='Name'
+              placeholder='name'
               value={name}
               onChange={(e) => setName(e.target.value)}
             ></Form.Control>
@@ -73,7 +73,7 @@ const ProfileScreen = ({ location, history }) => {
             <Form.Label>Password:</Form.Label>
             <Form.Control
               type='password'
-              placeholder='password'
+              placeholder='Password:'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></Form.Control>
