@@ -23,6 +23,7 @@ import {
   orderDetailsReducer,
   orderListReducer,
   orderPayReducer,
+  orderListMyReducer,
 } from './reducers/orderReducers'
 
 const reducer = combineReducers({
@@ -43,6 +44,8 @@ const reducer = combineReducers({
   productUpdate: productUpdateReducer,
   orderList: orderListReducer,
   orderPay: orderPayReducer,
+  orderListMy: orderListMyReducer,
+  
 })
 
 //Get locally stored shopping cart information

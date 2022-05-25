@@ -22,8 +22,10 @@ import {
   USER_UPDATE_FAIL,
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
+  USER_DETAILS_RESET,
 } from '../contents/userContents'
 import axios from 'axios'
+import { ORDER_LIST_MY_RESET } from '../contents/orderContents'
 
 //user Login Action
 export const login = (email, password) => async (dispatch) => {
@@ -60,6 +62,10 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo')
   dispatch({ type: USER_LOGOUT })
   dispatch({ type: USER_LIST_RESET })
+  dispatch({ type: USER_DETAILS_RESET })
+  dispatch({
+    type: ORDER_LIST_MY_RESET,
+  })
 }
 
 //User Create Account Action
