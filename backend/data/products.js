@@ -49,7 +49,7 @@ const products = [
   },
   {
     name: 'Galaxy S21 Ultra',
-    image: '/images/Galaxy-S21-Ultra.jpg',
+    image: '/images/galaxy-s21-ultra.jpg',
     description:
       'Details of Galaxy S21 Ultra',
     brand: 'Samsung',
@@ -61,7 +61,7 @@ const products = [
   },
   {
     name: 'Galaxy S20 Ultra',
-    image: '/images/Galaxy-S20-Ultra.jpg',
+    image: '/images/galaxy-s20-ultra.jpg',
     description:
       'Details of Galaxy S20 Ultra',
     brand: 'Samsung',
@@ -85,7 +85,7 @@ const products = [
   },
   {
     name: 'Galaxy S22 Ultra',
-    image: '/images/Galaxy-S22-Ultra.jpg',
+    image: '/images/galaxy-s22-ultra.jpg',
     description:
       'Details of Galaxy S22 Ultra',
     brand: 'Samsung',
@@ -97,7 +97,7 @@ const products = [
   },
   {
     name: 'Pixel 6',
-    image: '/images/Pixel-6.jpg',
+    image: '/images/pixel-6.jpg',
     description:
       'Details of Pixel 6',
     brand: 'Google',
@@ -109,7 +109,7 @@ const products = [
   },
   {
     name: 'Pixel 6 Pro',
-    image: '/images/Pixel-6-Pro.jpg',
+    image: '/images/pixel-6-Pro.jpg',
     description:
       'Details of Pixel 6 Pro',
     brand: 'Google',
