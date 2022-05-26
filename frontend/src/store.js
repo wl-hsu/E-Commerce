@@ -8,6 +8,7 @@ import {
   productCreateReducer,
   productUpdateReducer,
   productReviewCreateReducer,
+  productTopRatedReducer,
 } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
 import {
@@ -27,29 +28,28 @@ import {
   orderListMyReducer,
   orderDeliverReducer,
 } from './reducers/orderReducers'
-
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDeatilsReducer,
+  productDelete: productDeleteReducer,
+  productCreate: productCreateReducer,
+  productUpdate: productUpdateReducer,
+  productReviewCreate: productReviewCreateReducer,
+  productTopRated: productTopRatedReducer,
   cart: cartReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
-  orderCreate: orderCreateReducer,
-  orderDetails: orderDetailsReducer,
   userList: userListReducer,
   userDelete: userDeleteReducer,
   userUpdate: userUpdateReducer,
-  productDelete: productDeleteReducer,
-  productCreate: productCreateReducer,
-  productUpdate: productUpdateReducer,
+  orderCreate: orderCreateReducer,
+  orderDetails: orderDetailsReducer,
   orderList: orderListReducer,
   orderPay: orderPayReducer,
   orderListMy: orderListMyReducer,
   orderDeliver: orderDeliverReducer,
-  productReviewCreate: productReviewCreateReducer,
-  
 })
 
 //Get locally stored shopping cart information
@@ -63,8 +63,8 @@ const userInfoFromStorage = localStorage.getItem('userInfo')
 
 //Get the user's shipping address information stored locally
 const shippingAddressStorage = localStorage.getItem('shippingAddress')
-? JSON.parse(localStorage.getItem('shippingAddress'))
-: {}
+  ? JSON.parse(localStorage.getItem('shippingAddress'))
+  : {}
 
 //initialize state value
 const initialState = {

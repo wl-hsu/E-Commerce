@@ -95,7 +95,7 @@ const CartScreen = ({ match, location, history }) => {
                 onClick={checkoutHandler}
                 
               >
-                Checkout
+                Place Order
               
               </Button>
             
