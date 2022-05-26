@@ -242,11 +242,11 @@ const OrderScreen = ({ match, history }) => {
                   <Col>${order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
-                    {/*PayPal BTN*/}
-                    {!order.isPaid && (
+              {/*PayPal BTN*/}
+              {!order.isPaid && order.paymentMethod === 'PayPal' && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
-                  {order.paymentMethod === 'PayPal' && !SDK ? (
+                  {!SDK ? (
                     <Loader />
                   ) : (
                     <PayPalButton
