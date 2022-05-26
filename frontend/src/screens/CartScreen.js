@@ -32,7 +32,7 @@ const CartScreen = ({ match, location, history }) => {
         <h1>Cart</h1>
         {cartItems.length === 0 ? (
           <Message>
-            Cart is empty<Link to='/'>Home page</Link>
+            Cart is empty<Link to='/'> Return Home Page</Link>
           </Message>
         ) : (
           <ListGroup variant='flush'>

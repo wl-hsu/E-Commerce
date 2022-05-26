@@ -3,6 +3,7 @@ import {
   CART_REMOVE_ITEM,
   CART_SAVE_PAYMENT_METHOD,
   CART_SAVE_SHIPPING_ADDRESS,
+  CART_CLEAR_ITEMS,
 } from '../contents/cartConstents'
 
 //cart reducer
@@ -34,6 +35,8 @@ export const cartReducer = (
         ...state,
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),
       }
+    case CART_CLEAR_ITEMS:
+      return { ...state, cartItems: [], shippingAddress: {}, paymentMethod: {} }
     case CART_SAVE_SHIPPING_ADDRESS:
       return { ...state, shippingAddress: action.payload }
     case CART_SAVE_PAYMENT_METHOD:
