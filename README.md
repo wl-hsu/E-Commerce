@@ -50,7 +50,6 @@ npm run dev
 
 # Run backend
 npm run server
-
 ```
 
 ### Data
