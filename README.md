@@ -1,6 +1,5 @@
 # E-Commerce
 
-## Getting Started
 
 ### Deployment 
 
@@ -18,15 +17,20 @@ user1
 user2@example.com 
 user2
 ```
+## Getting Started
 
 ### Configuration
 
 Create a .env file in the root directory, and then add the following
 
 NODE_ENV = development
+
 PORT = 5000
+
 MONGO_URI = your mongodb uri 
-JWT_SECRET = 'anyString'
+
+JWT_SECRET = anyString
+
 PAYPAL_CLIENT_ID = your paypal client id
 
 ### Install dependencies
@@ -49,13 +53,13 @@ npm run server
 
 ```
 
-### Data Base Data
+### Data
 
 cd to root directory
 ```
-# Insert data
+# Insert data to data base
 npm run data:import
-# destroy data
+# destroy data in data base
 npm run data:destroy
 ```
 
