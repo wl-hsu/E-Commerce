@@ -59,6 +59,7 @@ cd to root directory
 ```
 # Insert data to data base
 npm run data:import
+
 # destroy data in data base
 npm run data:destroy
 ```
