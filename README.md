@@ -34,6 +34,7 @@ PAYPAL_CLIENT_ID = your paypal client id
 
 ### Install dependencies
 
+cd to root directory
 ```
 npm install
 cd frontend
