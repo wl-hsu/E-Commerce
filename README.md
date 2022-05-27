@@ -29,7 +29,7 @@ PORT = 5000
 
 MONGO_URI = your mongodb uri 
 
-JWT_SECRET = anyString
+JWT_SECRET = any string
 
 PAYPAL_CLIENT_ID = your paypal client id
 
