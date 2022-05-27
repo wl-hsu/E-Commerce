@@ -1,7 +1,7 @@
 # E-Commerce
 
 
-### Deployment 
+## Demo 
 
 Online Preview Address: https://wlh-ecommerce.herokuapp.com/
 
