@@ -5,9 +5,8 @@
 
 Online Preview Address: https://wlh-ecommerce.herokuapp.com/
 
-```
 Testing account or you can signup
-
+```
 admin@example.com (Admin)
 admin
 
@@ -63,9 +62,8 @@ npm run data:import
 npm run data:destroy
 ```
 
-```
 Testing account or you can signup
-
+```
 admin@example.com (Admin)
 admin
 
